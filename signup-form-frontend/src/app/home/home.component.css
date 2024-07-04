@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242321; /* Primary color */
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  a[mat-button] {
+    color: white;
+    text-decoration: none;
+  }
+  
+  mat-toolbar a[mat-button]:hover {
+    background-color: #45a049; /* Slightly darker green for hover effect */
+  }

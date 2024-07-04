@@ -1,0 +1,24 @@
+<h1>USER LIST</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Password</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      <td>{{ user.password }}</td>
+      <td>
+        <button mat-button (click)="openEditModal(user, i)">Edit</button>
+        <button mat-button (click)="openDeleteModal(user, i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

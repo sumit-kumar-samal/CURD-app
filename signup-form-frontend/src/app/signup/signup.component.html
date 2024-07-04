@@ -1,0 +1,66 @@
+<h1>SIGNUP FORM</h1>
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName" [ngClass]="{'invalid': signupForm.controls['firstName'].invalid && signupForm.controls['firstName'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['firstName'].errors?.['required'] && signupForm.controls['firstName'].dirty">
+      First Name is required.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['firstName'].errors?.['pattern'] && signupForm.controls['firstName'].dirty">
+      Enter a valid First Name.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" formControlName="lastName" [ngClass]="{'invalid': signupForm.controls['lastName'].invalid && signupForm.controls['lastName'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['lastName'].errors?.['required'] && signupForm.controls['lastName'].dirty">
+      Last Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" [ngClass]="{'invalid': signupForm.controls['email'].invalid && signupForm.controls['email'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['email'].errors?.['required'] && signupForm.controls['email'].dirty">
+      Email is required.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['email'].errors?.['email'] && signupForm.controls['email'].dirty">
+      Enter a valid email.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" formControlName="phoneNumber" [ngClass]="{'invalid': signupForm.controls['phoneNumber'].invalid && signupForm.controls['phoneNumber'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['phoneNumber'].errors?.['required'] && signupForm.controls['phoneNumber'].dirty">
+      Phone Number is required.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['phoneNumber'].errors?.['pattern'] && signupForm.controls['phoneNumber'].dirty">
+      Enter a valid phone number (11 digits).
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" [ngClass]="{'invalid': signupForm.controls['password'].invalid && signupForm.controls['password'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['password'].errors?.['required'] && signupForm.controls['password'].dirty">
+      Password is required.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['password'].errors?.['pattern'] && signupForm.controls['password'].dirty">
+      Password must contains at least one uppercase letter, one lowercase letter, one digit, and one special character.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['password'].errors?.['minlength'] && signupForm.controls['password'].dirty">
+      Password must be at least 6 characters long.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input id="confirmPassword" formControlName="confirmPassword" type="password" [ngClass]="{'invalid': signupForm.controls['confirmPassword'].invalid && signupForm.controls['confirmPassword'].dirty}">
+    <div class="error-message" *ngIf="signupForm.controls['confirmPassword'].errors?.['required'] && signupForm.controls['confirmPassword'].dirty">
+      Confirm Password is required.
+    </div>
+    <div class="error-message" *ngIf="signupForm.controls['confirmPassword'].value !== signupForm.controls['password'].value && signupForm.controls['confirmPassword'].dirty">
+      Confirm Password does not match.
+    </div>
+  </div>
+  
+  <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+</form>
